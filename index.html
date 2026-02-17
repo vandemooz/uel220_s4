@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toobovan</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico" />
+    <!--Polices Google Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Borel&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="site_name_container">
+        <h1 class="site_name">Toobovan</h1>
+        <span>
+          <img
+            class="logo_site"
+            src="assets/images/favicon.ico"
+            alt="Logo de la page représentant un nuage, une lune et du vent"
+          />
+        </span>
+      </div>
+      <!-- Musique de fond -->
+      <audio loop src="./assets/audio/bg_music.mp3" id="bg_music"></audio>
+      <!-- Effets sonores -->
+      <audio src="./assets/audio/answer.mp3" id="answer_sound"></audio>
+      <audio src="./assets/audio/no_answer.mp3" id="no_answer_sound"></audio>
+    </header>
+    <!-- Introduction -->
+    <div class="content introduction_content" id="introduction_content">
+      <h2>Testez vos connaissances !</h2>
+      <!-- Explication du jeu -->
+      <p class="intro">
+        <span>
+          Bienvenue dans Toobovan, un jeu écologique qui mettra vos
+          connaissances environnementales à l'épreuve ! <br />
+          Chaque jour, tous les endroits au sein desquels la population humaine
+          a élu domicile luttent contre la pollution. Les particules fines sont
+          nocives pour la santé humaine et l'exposition chronique à ces
+          particules augmente le risque de contracter des maladies respiratoires
+          et cardiovasculaires, et notamment des cancers pulmonaires et des AVC.
+          <br />
+          Mais quels lieux s'en sortent le mieux ?</span
+        >
+        <span
+          >Préparez-vous à naviguer entre deux destinations aléatoires et à
+          deviner où sortir un footing serait, en effet, bénéfique pour votre
+          santé. Que vous souhaitiez un défi rapide ou une immersion profonde,
+          personnalisez le nombre de questions de 1 à 100 et observez votre
+          score grimper en temps réel. Saurez-vous identifier le lieu le moins
+          pollué ?</span
+        >
+      </p>
+      <!-- Nombre de questions -->
+      <div class="slider_container">
+        <div class="range">
+          <div class="min">Minimum<span>1</span></div>
+          <div class="range_input">
+            <div class="selector">
+              <div class="select_value">50</div>
+              <div class="select_button"></div>
+            </div>
+            <div class="progress_bar"></div>
+            <input
+              type="range"
+              name=""
+              id="slider_input"
+              min="1"
+              max="100"
+              value="50"
+            />
+          </div>
+          <div class="max">Maximum<span>100</span></div>
+        </div>
+      </div>
+      <button class="button" id="startButton">Commencer</button>
+    </div>
+    <!-- Main content -->
+    <main class="quiz_container hidden" id="quiz_container">
+      <div class="container">
+        <div class="content">
+          <div class="game_header">
+            <!-- Header du jeu -->
+            <h2>Quel endroit est le plus pollué ?</h2>
+            <!-- Affichage des scores -->
+            <div class="score_display">
+              <!-- Nombre de réponses correctes -->
+              <div class="score_item">
+                <span class="score_value" id="scoreValue">0</span>
+                <span> réponses correctes 🌟 </span>
+              </div>
+              <!-- Nombre de questions restantes -->
+              <div class="score_item">
+                <span class="score_value" id="totalQuestions"></span>
+                <span>tentatives restantes 🔎 </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Formulaire avec les villes (pour remplacer notre affichage texte simple de base) -->
+          <form class="quiz_formulaire" id="quizForm">
+            <div id="container_cities" class="container_cities">
+              <!-- Ville proposée n°1 -->
+              <label class="city_item">
+                <div class="city_details">
+                  <div class="city_name"></div>
+                  <div class="flag_pic"></div>
+                  <span class="country_name"></span>
+                  <span class="country_flag"></span>
+                </div>
+                <div class="selecteur"></div>
+                <input type="radio" name="location" value="locationA" />
+              </label>
+
+              <!-- Ville proposée n°2 -->
+              <label class="city_item">
+                <div class="city_details">
+                  <div class="city_name"></div>
+                  <div class="flag_pic"></div>
+                  <span class="country_name"></span>
+                  <span class="country_flag"></span>
+                </div>
+                <div class="selecteur"></div>
+                <input type="radio" name="location" value="locationB" />
+              </label>
+            </div>
+            <div id="loading" class="loading">
+              <i>Chargement des propositions...</i>
+              <img
+                class="loading_pic"
+                src="./assets/images/please_wait.gif"
+                alt=""
+              />
+            </div>
+
+            <p class="error"></p>
+
+            <button type="submit" class="button" id="confirmation">
+              Confirmer
+            </button>
+          </form>
+        </div>
+        <div class="summary" id="summary"></div>
+      </div>
+    </main>
+
+    <!-- page de conclusion -->
+    <div class="content outro_content hidden" id="outro_content">
+      <h2>Votre test est terminé !</h2>
+      <p class="outro">Voyons ensemble vos résultats...</p>
+
+      <!-- affichage du score final -->
+      <div class="final_results">
+        <div class="final_score">
+          <span>Vous avez un taux de<br /></span>
+          <span class="valeur_score" id="scoreFinal"></span>
+          <span class="valeur_score" id="scoreFinal">%</span>
+          <span>de réponses correctes !<br /></span>
+        </div>
+      </div>
+
+      <button class="button" id="restartButton">Rejouer</button>
+    </div>
+
+    <footer>Alexandre, Candice, Zoé <br />Tous droits réservés</footer>
+    <script type="text/javascript" src="assets/javascript/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "name": "mini_projet_g2",
+  "version": "1.0.0",
+  "description": "Toobovan est un mini-jeu où le joueur choisit entre deux villes affichées aléatoirement celle qui semble la moins polluée du jour. Le nombre de questions est personnalisable, entre 1 et 100, et le score est mis à jour en temps réel.",
+  "main": "http.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hikki-ko/mini_projet_g2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hikki-ko/mini_projet_g2/issues"
+  },
+  "homepage": "https://github.com/Hikki-ko/mini_projet_g2#readme"
+}

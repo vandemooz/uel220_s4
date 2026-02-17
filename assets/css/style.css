@@ -1,0 +1,400 @@
+*, 
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Couleurs */
+:root {
+	--primary-color: #45059d;
+    --secondary-color: #e1dcff;
+    --tertiary-color: #fae671;
+    --fourth-color: #b98f2e;
+    --black-color: #000;
+    --white-color: #FFFFFF;
+    --gray-color: #999;}
+
+/* Header */
+.site_name_container{
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  margin: 1rem auto 0.5rem auto;
+  gap: 0.5rem;
+}
+
+.site_name{
+  margin-top : 2rem;
+  font-family: "Borel", cursive;
+  font-size: 3rem;
+  color: var(--primary-color);
+}
+
+.logo_site{
+  position : absolute;
+  top : 15px;
+  left : 938px;
+  width: 4rem;
+  height: auto;
+}
+
+
+/* Introduction */
+.intro{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.introduction_content{
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Conclusion */
+.conclusion_content{
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Slider */
+.slider_container{
+  margin-top: 5rem;
+  padding: 1rem;
+  width: 650px;
+  justify-self: center;
+}
+
+.range{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.min, 
+.max{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary-color);
+}
+
+.range_input{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 2.5rem;
+}
+
+.selector{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-90%);
+  z-index: 1;
+}
+
+.select_value{
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1.5rem;
+  line-height: 3rem;
+  font-size: 1.1rem;
+  border-radius: 50%;
+  text-align: center;
+  color: var(--white-color);
+  background-color: var(--primary-color);
+}
+
+.select_value::after{
+  content: "";
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+  transform: rotate(45deg);
+  background-color: var(--primary-color);
+  z-index: -1;
+}
+
+.select_button{
+  width: 3rem;
+  height: 1rem;
+  border-radius: 50px;
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.progress_bar{
+  position: absolute;
+  height: 5px;
+  border-radius: 5px;
+  width: 50%;
+  background-color: var(--primary-color);
+}
+
+.selector,
+.select_value,
+.progress_bar {
+  transition: all 0.1s ease-out;
+}
+
+#slider_input{
+  appearance: none;
+  -webkit-appearance: none; 
+  height: 5px;
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+}
+
+#slider_input::-webkit-slider-thumb{
+  appearance: none;
+  -webkit-appearance: none;
+  width: 3rem;
+  height: 1rem;
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  transition: background-color 0.2s ease;
+}
+
+/* Structure du quizz */
+.container{
+  display: flex;
+  flex-direction: column;
+  gap:1rem
+}
+
+.quiz_container{
+  max-width: 75rem;
+  margin: 1rem auto;
+
+}
+
+/* Commun */
+body{
+    background-color: var(--secondary-color);
+    scroll-behavior: smooth;
+    font-family: "Montserrat", sans-serif;
+}
+.hidden {
+    display: none;
+}
+.content{
+  flex-basis: 75%;
+  padding: 2rem;
+}
+
+h2{
+  text-align: center;
+  margin-top: 2.2rem;
+  font-size: 1.9rem;
+  font-weight: lighter;
+  font-family: "Borel", cursive;
+  color: var(--primary-color);
+
+}
+
+
+
+.intro{
+  text-align: center;
+}
+
+.summary{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap:1rem;
+  padding: 2rem;
+}
+.content, .summary{
+  background-color: var(--white-color);
+  border: 1px solid var(--gray-color);
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.location_name_summary{
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.location_country_summary{
+  color: var(--fourth-color);
+  text-transform: uppercase;
+}
+
+.button{
+  display: block;
+  margin : 0 auto;
+  background-color: var(--tertiary-color);
+  padding: 1rem;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  color: var(--primary-color);
+  font-family: "Borel", cursive;
+  font-weight: 600;
+  font-size: 1.2rem;
+  transition: transform .2s; /* Animation */
+}
+
+.button:hover{
+  transition: 0.2s;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  cursor: pointer;
+}
+
+.button:active{
+  transform: scale(1.2);
+}
+
+/* Jeu */
+
+.loading{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  text-align: center;
+}
+
+.loading_pic{
+  width: 10rem;
+  height: auto;
+  align-self: center;
+}
+
+.error{
+  margin: 1rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.quiz_formulaire {
+  margin-top: 2rem;
+}
+
+.container_cities{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 6rem;
+  margin-bottom: 2rem;
+}
+
+.city_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.city_item:hover{
+  transition: 0.5s;
+  transform: scale(1.05);
+}
+
+.city_details{
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+.city_name {
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.country_name{
+  color: var(--fourth-color);
+  text-transform: uppercase;
+}
+
+
+/* Affichage score */
+.score_display {
+  display: flex;
+  justify-content: center;
+  gap: 6rem;
+  margin-top: 1rem;
+}
+
+.score_item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color:#000;
+}
+
+.score_value {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-right: 0.3rem;
+  margin-bottom: 0.1rem;
+}
+
+
+
+/* outro */
+.outro_content {
+  max-width: 75rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.outro {
+  font-size: 1.1rem;
+  margin: 1.5rem 0;
+}
+
+.final_results {
+  margin: 3rem auto;
+}
+
+.final_score {
+  background-color: var(--white-color);
+  border: 2px solid var(--primary-color);
+  border-radius: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2.5rem;
+}
+
+.final_score > span:first-child {
+  font-size: 1.2rem;
+  display: block;
+  color: var(--black-color);
+  margin-bottom: 1.5rem;
+}
+
+.valeur_score {
+  font-size: 3.5rem;
+  font-weight: bold;
+  font-family: "Borel", cursive;
+  color: var(--primary-color);
+}
+
+/* Footer */
+footer{
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  text-align: center;
+  color: #9482a3;
+}
+
